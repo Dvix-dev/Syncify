@@ -1,4 +1,4 @@
-"""Interfaz gráfica de la app de sincronización Spotify → YouTube Music."""
+"""Interfaz gráfica de Syncify (Spotify → YouTube Music)."""
 from __future__ import annotations
 
 import queue
@@ -33,15 +33,18 @@ class YTMAuthDialog(ctk.CTkToplevel):
 
         ctk.CTkLabel(
             self,
-            text="Cómo obtener los headers (una sola vez):",
+            text="Conectar YouTube Music (paso a paso):",
             font=ctk.CTkFont(size=15, weight="bold"),
         ).pack(padx=16, pady=(14, 4), anchor="w")
         steps = (
-            "1. Abre https://music.youtube.com en tu navegador e inicia sesión.\n"
-            "2. Pulsa F12 → pestaña 'Red' / 'Network'.\n"
-            "3. Recarga la página y haz clic en cualquier petición a music.youtube.com.\n"
-            "4. En 'Cabeceras de la petición', copia TODO el bloque de headers\n"
-            "   (desde ':method:' o 'accept:' hasta el final) y pégalo abajo."
+            "1. Abre music.youtube.com e inicia sesión.\n"
+            "2. Pulsa F12 y abre 'Red' / 'Network'.\n"
+            "3. Recarga la página (Ctrl+R).\n"
+            "4. Filtra por 'browse' y selecciona una petición POST.\n"
+            "5. Clic derecho → 'Copy' → 'Copy request headers'.\n"
+            "6. Pega aquí el texto completo y pulsa Conectar.\n\n"
+            "Importante: no compartas estos headers; contienen tu sesión.\n"
+            "Se guardan solo en tu equipo y pueden caducar."
         )
         ctk.CTkLabel(self, text=steps, justify="left").pack(padx=16, pady=(0, 8), anchor="w")
 
@@ -51,6 +54,7 @@ class YTMAuthDialog(ctk.CTkToplevel):
         btns = ctk.CTkFrame(self, fg_color="transparent")
         btns.pack(fill="x", padx=16, pady=(0, 14))
         ctk.CTkButton(btns, text="Conectar", width=140, command=self._connect).pack(side="left")
+        ctk.CTkButton(btns, text="Abrir guía online", width=150, fg_color="gray", command=lambda: __import__("webbrowser").open("https://ytmusicapi.readthedocs.io/en/stable/setup/browser.html")).pack(side="left", padx=8)
         ctk.CTkButton(
             btns, text="Usar archivo existente…", width=180, fg_color="gray",
             command=self._use_file,
@@ -85,7 +89,7 @@ class YTMAuthDialog(ctk.CTkToplevel):
 class App(ctk.CTk):
     def __init__(self) -> None:
         super().__init__()
-        self.title("Sincronizador Spotify → YouTube Music")
+        self.title("Syncify · Spotify → YouTube Music")
         self.geometry("960x700")
         self.minsize(820, 560)
 
@@ -109,7 +113,7 @@ class App(ctk.CTk):
         # --- Tarjeta Spotify ---
         sp_card = ctk.CTkFrame(top)
         sp_card.pack(side="left", fill="both", expand=True, padx=(0, 6))
-        ctk.CTkLabel(sp_card, text="Spotify", font=ctk.CTkFont(size=16, weight="bold")).pack(
+        ctk.CTkLabel(sp_card, text="Syncify · Spotify", font=ctk.CTkFont(size=16, weight="bold")).pack(
             anchor="w", padx=12, pady=(8, 2)
         )
         form = ctk.CTkFrame(sp_card, fg_color="transparent")
@@ -139,7 +143,7 @@ class App(ctk.CTk):
         )
         hint = ctk.CTkLabel(
             yt_card,
-            text="Conecta pegando los headers de music.youtube.com\n(se guardan localmente, solo se piden una vez).",
+            text="Conecta tu cuenta de YouTube Music de forma segura.\nLa app te guiará para importar una sesión del navegador.",
             justify="left",
         )
         hint.pack(anchor="w", padx=12)

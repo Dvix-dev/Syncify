@@ -1,4 +1,4 @@
-"""Punto de entrada de la app de sincronización Spotify → YouTube Music."""
+"""Punto de entrada de Syncify (Spotify → YouTube Music)."""
 from syncer.gui import run
 
 if __name__ == "__main__":
