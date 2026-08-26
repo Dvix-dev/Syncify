@@ -1,7 +1,6 @@
 <div align="center">
-  <img src="assets/syncify-logo.svg" alt="Syncify" width="720" />
-  <h1>Syncify</h1>
-  <p>Sincroniza tus playlists y canciones favoritas entre Spotify y YouTube Music.</p>
+  <img src="assets/syncify-logo.svg" alt="Syncify" width="800" />
+  <p><strong>Sincroniza tus playlists y canciones favoritas entre Spotify y YouTube Music.</strong></p>
 </div>
 
 # Syncify

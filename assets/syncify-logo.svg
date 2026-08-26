@@ -1,15 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 220" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 300" role="img" aria-labelledby="title desc">
   <title id="title">Syncify</title>
-  <desc id="desc">Logo de Syncify con dos flechas circulares y una nota musical</desc>
+  <desc id="desc">Icono moderno de sincronización con nota musical y palabra Syncify</desc>
   <defs>
-    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
-      <stop offset="0" stop-color="#1DB954"/><stop offset="1" stop-color="#7C5CFF"/>
+    <linearGradient id="brand" x1="20" y1="20" x2="240" y2="260" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1ED760"/>
+      <stop offset="1" stop-color="#6C5CE7"/>
     </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#0B1020" flood-opacity=".28"/>
+    </filter>
   </defs>
-  <rect width="720" height="220" rx="42" fill="#111827"/>
-  <circle cx="110" cy="110" r="68" fill="url(#g)"/>
-  <path d="M72 92c22-30 67-31 84 2M157 128c-22 30-67 31-84-2" fill="none" stroke="white" stroke-width="13" stroke-linecap="round"/>
-  <path d="m151 78 9 17-20 3M78 142l-9-17 20-3" fill="none" stroke="white" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M119 79v57a16 16 0 1 1-9-15V91l41-10v48a16 16 0 1 1-9-15V70z" fill="white"/>
-  <text x="205" y="143" fill="white" font-family="Arial,Helvetica,sans-serif" font-size="88" font-weight="700">Syncify</text>
+  <rect width="960" height="300" rx="56" fill="#F8FAFC"/>
+  <g filter="url(#shadow)">
+    <rect x="38" y="38" width="224" height="224" rx=" sixty" fill="url(#brand)"/>
+  </g>
+  <g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M91 126c12-31 42-53 77-53 22 0 42 8 57 22" stroke-width="15"/>
+    <path d="m207 76 20 19-26 4" stroke-width="12"/>
+    <path d="M209 174c-12 31-42 53-77 53-22 0-42-8-57-22" stroke-width="15"/>
+    <path d="m93 224-20-19 26-4" stroke-width="12"/>
+  </g>
+  <path d="M135 116v72a23 23 0 1 1-13-21v-67l66-16v72a23 23 0 1 1-13-21v-32z" fill="#fff"/>
+  <text x="308" y="193" fill="#111827" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="116" font-weight="750" letter-spacing="-5">Syncify</text>
+  <circle cx="884" cy="82" r="10" fill="#1ED760"/>
+  <circle cx="916" cy="82" r="10" fill="#6C5CE7"/>
 </svg>
